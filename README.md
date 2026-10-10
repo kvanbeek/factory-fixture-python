@@ -1,4 +1,4 @@
-# factory-fixture-python (moved 3eb44c)
+# factory-fixture-python
 
 A tiny, disposable Python project used to test the Durable Development
 Factory's project onboarding and lanes. It has no users and no releases.
