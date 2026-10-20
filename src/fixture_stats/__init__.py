@@ -1,6 +1,6 @@
 """Small statistics helpers, used as a disposable fixture."""
 
-from collections.abc import Sequence
+from collections.abc import Iterable, Sequence
 
 
 def mean(values: Sequence[float]) -> float:
@@ -19,3 +19,12 @@ def median(values: Sequence[float]) -> float:
     if len(ordered) % 2:
         return ordered[middle]
     return (ordered[middle - 1] + ordered[middle]) / 2
+
+
+def variance(values: Iterable[float]) -> float:
+    """The population variance of a non-empty iterable."""
+    values = list(values)
+    if not values:
+        raise ValueError("variance of an empty sequence")
+    centre = sum(values) / len(values)
+    return sum((value - centre) ** 2 for value in values) / len(values)
